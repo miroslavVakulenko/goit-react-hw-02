@@ -14,9 +14,9 @@ function App() {
   const handleChangeFeedback = () => {
     return setObj({
       ...obj,
-      good: { goodValue },
-      neutral: { neutralValue },
-      bad: {badvalue}
+      good:  obj.good + 1,
+      neutral: obj.neutral + 1 ,
+      bad: obj.bad + 1
     })
   }
 
