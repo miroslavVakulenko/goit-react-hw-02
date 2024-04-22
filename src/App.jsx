@@ -11,20 +11,29 @@ function App() {
 	neutral: 0,
 	bad: 0
   })
-  const handleChangeFeedback = () => {
-    return setObj({
-      ...obj,
-      good:  obj.good + 1,
-      neutral: obj.neutral + 1 ,
-      bad: obj.bad + 1
-    })
+  // const handleChangeFeedback = (type) => {
+  //   return setObj({
+  //     ...obj,
+  //     [type]:  obj[type] + 1
+  //   })
+  // }
+  const handleChangeFeedback = (type) => {
+    setObj({...obj,[type]: obj[type] + 1 })
   }
+  // useEffect(() => {
+  //   console.log('useEffect')
+  // }, [obj])
+  const { good, neutral, bad } = obj;
+  console.log(good, neutral, bad)
+  const totalFeedback = good + neutral + bad;
+  console.log(totalFeedback)
+  
 
   return (
     <>
       <Description />
-      <Options />
-      <Feedback props={handleChangeFeedback} />
+      <Options handleChangeFeedback={handleChangeFeedback} />
+      <Feedback props={obj} />
     </>
   )
 }

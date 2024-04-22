@@ -1,9 +1,10 @@
-export default function Options() {
+//src\components\Options\Options.jsx
+export default function Options({ handleChangeFeedback }) {
   return (
     <>
-      <button>Good</button>
-      <button>Neutral</button>
-      <button>Bad</button>
+      <button onClick={() => handleChangeFeedback('good')}>Good</button>
+      <button onClick={() => handleChangeFeedback('neutral')}>Neutral</button>
+      <button onClick={() => handleChangeFeedback('bad')}>Bad</button>
       <button>Reset</button>
     </>
   )
