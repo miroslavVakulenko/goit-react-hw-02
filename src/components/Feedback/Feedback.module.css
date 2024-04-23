@@ -1,0 +1,12 @@
+.feedbackWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  gap: 1em;
+  border: 0.3rem #89b7da77 solid;
+  border-radius: 01rem;
+}
+.scoreItem{
+  font-family: monospace;
+  font-size: 1rem;
+}

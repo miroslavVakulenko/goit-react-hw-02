@@ -1,0 +1,12 @@
+.appWrapper{
+  max-width: 30em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.noFeedback{
+  font-family: monospace;
+  font-size: 1.1rem;
+  margin: 0 auto;
+}

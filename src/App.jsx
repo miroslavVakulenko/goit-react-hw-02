@@ -1,17 +1,11 @@
 import { useEffect, useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
+
+import css from "./App.module.css"
 import Description from './components/Description/Description'
 import Options from './components/Options/Options'
 import Feedback from './components/Feedback/Feedback'
-function App() {
-  // const [obj, setObj] = useState({
-	// good: 0,
-	// neutral: 0,
-	// bad: 0
-  // })
 
+function App() {
   const [obj, setObj] = useState(() => {
     const savedScore = window.localStorage.getItem("feedbackData");
     if (savedScore !== null) {
@@ -40,13 +34,13 @@ function App() {
   const roundFeedback = Math.round((good / totalFeedback) * 100)
 
   return (
-    <>
-      <Description />
+    <div className={css.appWrapper}>
+      <Description/>
       <Options handleChangeFeedback={handleChangeFeedback} totalFeedback={totalFeedback} handleResetFeedback={handleResetFeedback} />
       {totalFeedback > 0 && 
-      <Feedback props={obj} roundFeedback={roundFeedback} totalFeedback={totalFeedback}/> || <p>No feedback yet</p>
+        <Feedback props={obj} roundFeedback={roundFeedback} totalFeedback={totalFeedback} /> || <p className={css.noFeedback}>No feedback yet</p>
       }  
-    </>
+    </div>
   )
 }
 
