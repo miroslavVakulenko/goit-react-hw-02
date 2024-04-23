@@ -6,11 +6,24 @@ import Description from './components/Description/Description'
 import Options from './components/Options/Options'
 import Feedback from './components/Feedback/Feedback'
 function App() {
-  const [obj, setObj] = useState({
-	good: 0,
-	neutral: 0,
-	bad: 0
+  // const [obj, setObj] = useState({
+	// good: 0,
+	// neutral: 0,
+	// bad: 0
+  // })
+
+  const [obj, setObj] = useState(() => {
+    const savedScore = window.localStorage.getItem("feedbackData");
+    if (savedScore !== null) {
+      return JSON.parse(savedScore);
+    }
+    return {
+      good: 0,
+      neutral: 0,
+      bad: 0
+    };
   })
+
   useEffect(() => {
     window.localStorage.setItem("feedbackData", JSON.stringify(obj) )
   }, [obj])
