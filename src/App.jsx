@@ -20,20 +20,27 @@ function App() {
   const handleChangeFeedback = (type) => {
     setObj({...obj,[type]: obj[type] + 1 })
   }
+  const handleResetFeedback = () => {
+    setObj({good: 0,
+	neutral: 0,
+	bad: 0})
+  }
   // useEffect(() => {
   //   console.log('useEffect')
   // }, [obj])
   const { good, neutral, bad } = obj;
   console.log(good, neutral, bad)
   const totalFeedback = good + neutral + bad;
-  console.log(totalFeedback)
-  
+  const roundFeedback = Math.round((good / totalFeedback) * 100)
+  console.log(roundFeedback)  
 
   return (
     <>
       <Description />
-      <Options handleChangeFeedback={handleChangeFeedback} />
-      <Feedback props={obj} />
+      <Options handleChangeFeedback={handleChangeFeedback} totalFeedback={totalFeedback} handleResetFeedback={handleResetFeedback} />
+      {totalFeedback > 0 && 
+      <Feedback props={obj} roundFeedback={roundFeedback} totalFeedback={totalFeedback}/> || <p>No feedback yet</p>
+      }  
     </>
   )
 }

@@ -1,15 +1,14 @@
 
 //src\components\Feedback\Feedback.jsx
-export default function Feedback({ props }) {
+export default function Feedback({ props, totalFeedback, roundFeedback }) {
   const { good, neutral, bad } = props;
-  console.log(good, neutral, bad)
   return (
     <div>
       <p>Good:{good}</p>
       <p>Neutral:{neutral}</p>
       <p>Bad:{bad}</p>
-      <p>Total:</p>
-      <p>Positive:</p>
+      <p>Total:{totalFeedback}</p>
+      <p>Positive:{roundFeedback}</p>
     </div>
   )
 }
