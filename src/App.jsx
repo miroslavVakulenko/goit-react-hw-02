@@ -36,10 +36,8 @@ function App() {
 	bad: 0})
   }
   const { good, neutral, bad } = obj;
-  console.log(good, neutral, bad)
   const totalFeedback = good + neutral + bad;
   const roundFeedback = Math.round((good / totalFeedback) * 100)
-  console.log(roundFeedback)  
 
   return (
     <>
