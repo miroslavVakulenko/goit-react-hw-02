@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
@@ -11,12 +11,9 @@ function App() {
 	neutral: 0,
 	bad: 0
   })
-  // const handleChangeFeedback = (type) => {
-  //   return setObj({
-  //     ...obj,
-  //     [type]:  obj[type] + 1
-  //   })
-  // }
+  useEffect(() => {
+    window.localStorage.setItem("feedbackData", JSON.stringify(obj) )
+  }, [obj])
   const handleChangeFeedback = (type) => {
     setObj({...obj,[type]: obj[type] + 1 })
   }
@@ -25,9 +22,6 @@ function App() {
 	neutral: 0,
 	bad: 0})
   }
-  // useEffect(() => {
-  //   console.log('useEffect')
-  // }, [obj])
   const { good, neutral, bad } = obj;
   console.log(good, neutral, bad)
   const totalFeedback = good + neutral + bad;
