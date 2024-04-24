@@ -4,6 +4,7 @@ import css from "./App.module.css"
 import Description from './components/Description/Description'
 import Options from './components/Options/Options'
 import Feedback from './components/Feedback/Feedback'
+import Notification from './components/Notification/Notification'
 
 function App() {
   const [obj, setObj] = useState(() => {
@@ -38,7 +39,7 @@ function App() {
       <Description/>
       <Options handleChangeFeedback={handleChangeFeedback} totalFeedback={totalFeedback} handleResetFeedback={handleResetFeedback} />
       {totalFeedback > 0 && 
-        <Feedback props={obj} roundFeedback={roundFeedback} totalFeedback={totalFeedback} /> || <p className={css.noFeedback}>No feedback yet</p>
+        <Feedback props={obj} roundFeedback={roundFeedback} totalFeedback={totalFeedback} /> || <Notification/>
       }  
     </div>
   )
